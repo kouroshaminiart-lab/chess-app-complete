@@ -1,4 +1,5 @@
 "use client";
+import SplashScreen from "./SplashScreen";
 import {useMemo,useState} from "react";
 import {Chess,type Square} from "chess.js";
 const files=["a","b","c","d","e","f","g","h"],ranks=["8","7","6","5","4","3","2","1"];
