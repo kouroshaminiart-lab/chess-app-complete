@@ -6,6 +6,11 @@ const files=["a","b","c","d","e","f","g","h"],ranks=["8","7","6","5","4","3","2"
 const glyph:Record<string,string>={wp:"♙",wn:"♘",wb:"♗",wr:"♖",wq:"♕",wk:"♔",bp:"♟",bn:"♞",bb:"♝",br:"♜",bq:"♛",bk:"♚"};
 const api=process.env.NEXT_PUBLIC_API_URL??"http://localhost:4000";
 export default function ComputerPage(){
+const [showSplash, setShowSplash] = useState(true);
+
+if (showSplash) {
+  return <SplashScreen onFinish={() => setShowSplash(false)} />;
+}
  const [chess,setChess]=useState(()=>new Chess()); const [selected,setSelected]=useState<Square|null>(null); const [message,setMessage]=useState("You are White.");
  const squares=useMemo(()=>ranks.flatMap(r=>files.map(f=>`${f}${r}` as Square)),[]);
  async function click(sq:Square){
